@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+{% extends 'Pets/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Menu Items -->
+
+<section class="ftco-menu">
+    <div class="container-fluid">
+        <div class="row d-md-flex">
+            <div class="col-lg-12 ftco-animate p-md-5">
+                <div class="row">
+                    <!-- Menu Nav -->
+                    <div class="col-md-12 nav-link-wrap mb-5">
+                        <div class="nav ftco-animate nav-pills" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1"
+                                role="tab" aria-controls="v-pills-1" aria-selected="true">Dogs</a>
+
+                            <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab"
+                                aria-controls="v-pills-4" aria-selected="false">Cats</a>
+                        </div>
+                    </div>
+
+                    <!-- Content Cards -->
+                    <div class="col-md-12 d-flex align-items-center">
+                        <div class="tab-content ftco-animate" id="v-pills-tabContent">
+
+                            <!-- Dogs Div -->
+                            <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
+                                aria-labelledby="v-pills-1-tab">
+                                <div class="row d-flex" id="dogs-div">
+                                    {% for menu in menu %}
+                                    {%if menu.type == "dog"%}
+                                    <div class="col-md-4 d-flex ftco-animate">
+                                        <div class="blog-entry align-self-stretch">
+                                            <img src="{{ menu.petImage }}" alt="pet" style="object-fit: cover;"
+                                                class="block-20">
+                                            <div class="text py-4 d-block">
+                                                <div class="meta">
+                                                    <div><b>{{ menu.petName }}</b></div>
+                                                    <div>{{ menu.petBirthdate }}</div>
+                                                </div>
+                                                <h3 class="heading mt-2"><a href="/pet_details/{{menu.id}}">{{ menu.breed }}</a></h3>
+                                                <p>{{ menu.description }}</p>
+                                                {%if hide_user_name%}
+                                                <a href="/pet_details/{{menu.id}}" class="btn btn-white btn-outline-white">Adopt</a>
+                                                {%else%}
+                                                <a href="/login" class="btn btn-white btn-outline-white">Adopt</a>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <!-- Cats Div -->
+                            <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+                                <div class="row" id="cats-div">
+                                    {% for menu in menu %}
+                                    {%if menu.type == "cat"%}
+                                    <div class="col-md-4 d-flex ftco-animate">
+                                        <div class="blog-entry align-self-stretch">
+                                            <img src="{{ menu.petImage }}" alt="pet" style="object-fit: cover;"
+                                                class="block-20">
+                                            <div class="text py-4 d-block">
+                                                <div class="meta">
+                                                    <div><b>{{ menu.petName }}</b></div>
+                                                    <div>{{ menu.petBirthdate }}</div>
+                                                </div>
+                                                <h3 class="heading mt-2"><a href="/pet_details/{{menu.id}}">{{ menu.breed }}</a></h3>
+                                                <p>{{ menu.description }}</p>
+                                                {%if hide_user_name%}
+                                                <a href="/pet_details/{{menu.id}}" class="btn btn-white btn-outline-white">Adopt</a>
+                                                {%else%}
+                                                <a href="/login" class="btn btn-white btn-outline-white">Adopt</a>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {%endif%}
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

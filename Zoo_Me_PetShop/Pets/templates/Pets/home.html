@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{% extends 'Pets/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Welcome Section -->
+
+<section class="ftco-about d-md-flex">
+    <div class="one-half img" style="background-image: url(/static/images/about.jpg);"></div>
+    <div class="one-half ftco-animate">
+        <div class="heading-section ftco-animate ">
+            <h2 class="mb-4">Welcome to</h2><img class="one-half img" src="/static/images/logo_Zoome.png" alt="">
+        </div>
+        <div>
+            <p>Bring home a pet to make your home a better place. It is always wonderful to adopt pets. Adopting the ones from such places means offering those underprivileged little friends a new home.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Caresol Section -->
+
+<section class="home-slider owl-carousel img" style="background-image: url(/static/images/bg_1.jpg);">
+    <div class="slider-item">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-center" data-scrollax-parent="true">
+                <div class="col-md-6 col-sm-12 ftco-animate">                    
+                    <span class="subheading">ZOO.Me</span>
+                    <h1 class="mb-4">Best Dogs</h1>
+                    <p class="mb-4 mb-md-5">Where wagging tails and purrs abound</p>
+                    <p><a href="/login" class="btn btn-primary p-3 px-xl-4 py-xl-3">Join Now</a> <a
+                            href="/pets" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View
+                            Pets</a></p>
+                </div>
+                <div class="col-md-6 ftco-animate">
+                    <img src="/static/images/bg_1.png" class="img-fluid" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-item">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text align-items-center" data-scrollax-parent="true">
+
+                <div class="col-md-6 col-sm-12 order-md-last ftco-animate">
+                    <span class="subheading">ZOO.Me</span>
+                    <h1 class="mb-4">Best Cats</h1>
+                    <p class="mb-4 mb-md-5">Pawsitively the best.</p>
+                    <p><a href="/login" class="btn btn-primary p-3 px-xl-4 py-xl-3">Join Now</a> <a
+                            href="/pets" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View
+                            Pets</a></p>
+                </div>
+                <div class="col-md-6 ftco-animate">
+                    <img src="/static/images/bg_23.png" class="img-fluid" alt="">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+{% endblock %}

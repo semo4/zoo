@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% extends 'Pets/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Pet Details -->
+<section class="ftco-section">
+    <div class="container">
+        <div class="row d-flex">
+
+            <div class="col-md-4 d-flex ftco-animate">
+                <div class="blog-entry align-self-stretch">
+                    <div class="menu-wrap">
+                        <img id="item-image" src="{{pet.petImage}}" alt="item Image" class="menu-img img mb-1"
+                            style="width: 350px; height: 350px; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h2 class="mb-4" id="item-name-bold">{{ pet.petName }}</h2>
+                <div style="text-transform: uppercase; font-weight: bold;"><b>{{ pet.type }}</b></div>
+
+                <p>{{ pet.description }}</p>
+                <div class="meta">
+                    <div style="font-weight: bold;">Breed : {{ pet.breed }}</div>
+                    <div>Birth Date : {{ pet.petBirthdate }}</div>
+                    <div class="text py-4 d-block">
+                        <div>
+                            {%if hide_user_name%}
+                            <a href="/apply_adoption/{{pet.id}}" class="btn btn-white btn-outline-white"
+                                onclick="message_back()">Apply for
+                                Adoption</a>
+                            {% for message in messages %}
+                            {%if message.tags == 'success' %}
+                            <!-- For later :: change pop up style -->
+                            <script>
+                                function message_back() { alert('{{ message.tags }}');
+                             }
+                            </script>
+                            {% endif %}
+                            {% endfor %}
+                            {%else%}
+                            <a href="/login" class="btn btn-white btn-outline-white">Apply for Adoption</a>
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
