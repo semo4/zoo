@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Pet, Apply_adoption, Adoption_by_user
-from django.contrib import messages
 from .forms import Apply_adoption_form, AdoptionOfferForm
 
 
@@ -76,11 +75,6 @@ def apply_adoption(request, pk):
     row['user_owner_id'] = user_id
     data = Apply_adoption_form(row)
     data.save()
-    pet_adoption_count = Apply_adoption.objects.all().count()
-    if pet_adoption_count > 0:
-        messages.success(
-            request, "Application for adoption added successfully, we will contact you soon, check My Pets")
-
     return redirect('Pets:pets')
 
 
@@ -97,8 +91,4 @@ def offer_adoption(request):
         row['description'] = request.POST.get('description')
         data = AdoptionOfferForm(row)
         data.save()
-    offer_adoption_count = Adoption_by_user.objects.all().count()
-    if offer_adoption_count > 0:
-        messages.success(
-            request, "Application for Offering adoption added succesfully, we will contact you soon, check My Pets")
     return redirect('Pets:pets')
