@@ -29,6 +29,22 @@
     <link rel="stylesheet" href="{% static 'css/flaticon.css'%}">
     <link rel="stylesheet" href="{% static 'css/icomoon.css'%}">
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <style>
+        .form-wrap-p {
+            background: rgba(255, 255, 255, 0.684);
+            padding: 20px;
+            border-radius: 20px;
+            }
+        .my-header {
+            display: flex;
+            justify-content: center; /* Centering Horizantly */
+            align-items: center;
+        }
+        .my-button{
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -48,7 +64,7 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="/pets" class="nav-link">Our Pets</a></li>
-                    <!-- <li class="nav-item"><a href="" target="_blank" class="nav-link">About</a></li> -->
+                    <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="/adoption_user" class="nav-link">Offer for Adoption</a></li>
                     
                     {% if hide_user_name%}
@@ -154,6 +170,8 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{% static 'js/google-map.js'%}"></script>
     <script src="{% static 'js/main.js'%}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
 </body>
 
 </html>

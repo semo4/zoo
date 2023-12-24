@@ -9,9 +9,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 ftco-animate">
-                <div class="comment-form-wrap pt-5">
-                    <h3 class="mb-5">Offer your pet for adoption</h3>
-                    <form method="POST" action="/offer_adoption/">
+                <div class="comment-form-wrap pt-5 form-wrap-p">
+                    <h3 class="mb-5 my-header">Offer your pet for adoption</h3>
+                    <form id="delayedForm" method="POST" action="/offer_adoption/" onsubmit="message_back(); window.setTimeout(function () { document.getElementById('delayedForm').submit(); }, 1500); return false">
                         {% csrf_token %}
                         <!-- {{ form.as_p }} -->
                         <div class="form-group">
@@ -51,7 +51,7 @@
                             <textarea name="description" cols="30" rows="5" class="form-control"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" value="Submit" class="btn btn-primary py-3 px-4">
+                            <input type="submit" value="Submit"  onclick="message_back()" class="btn btn-primary py-3 px-4 my-button">
                         </div>
 
                     </form>
@@ -62,5 +62,14 @@
     </div>
 </section>
 
-
+<script>
+    function message_back() {
+    Swal.fire({
+        icon: "success",
+        title: "Your Applied for this Pet Was Added Successfully",
+        showConfirmButton: false,
+        timer: 1500
+    });
+ }
+</script>
 {% endblock %}

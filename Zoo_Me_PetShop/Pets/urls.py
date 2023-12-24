@@ -10,8 +10,5 @@ urlpatterns = [
     path('pet_details/<int:pk>', views.pet_details, name='pet_details'),
     path('my_pets/', views.my_pets, name='my_pets'),
     path('apply_adoption/<int:pk>', views.apply_adoption, name='apply_adoption'),
-    # path('checkout', views.checkout, name='checkout'),
-    # path('finish_order', views.finish_order, name='finish_order'),
+    path('about/', views.about, name='about'),
 ]
-    
-

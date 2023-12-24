@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # Create your views here.
 
 
-def loginPage(request):        
+def loginPage(request):
     if request.user.is_authenticated:
         return redirect('Pets:home')
     else:
@@ -24,7 +24,8 @@ def loginPage(request):
 
         return render(request, 'usersManagement/login.html')
 
-def logoutUser(request):          
+
+def logoutUser(request):
     logout(request)
     return redirect('usersManagement:login')
 

@@ -33,51 +33,43 @@
                                     {% for apply_adoptions in apply_adoptions %}
                                     <div class="col-md-4 d-flex ftco-animate">
                                         <div class="blog-entry align-self-stretch">
-                                            <!-- <img src="{{ menu.petImage }}" alt="pet" style="object-fit: cover;"
+                                            <img src="{{ apply_adoptions.pet_id.petImage }}" alt="pet" style="object-fit: cover;"
                                                 class="block-20">
                                             <div class="text py-4 d-block">
                                                 <div class="meta">
-                                                    <div><b>{{ menu.petName }}</b></div>
-                                                    <div>{{ menu.petBirthdate }}</div>
+                                                    <div><b>{{ apply_adoptions.pet_id.petName }}</b></div>
+                                                    <div>{{ apply_adoptions.pet_id.petBirthdate }}</div>
                                                 </div>
-                                                <h3 class="heading mt-2"><a href="/pet_details/{{menu.id}}">{{
-                                                        menu.breed }}</a></h3>
-                                                <p>{{ menu.description }}</p>
-                                                 -->
+                                                <h3 class="heading mt-2"><a href="/pet_details/{{apply_adoptions.pet_id.id}}">{{apply_adoptions.pet_id.breed }}</a></h3>
+                                                <p>{{ apply_adoptions.pet_id.description }}</p>
                                         </div>
                                     </div>
                                 </div>
-
                                 {% endfor %}
+
                             </div>
                         </div>
                         <!-- My Adoption Offers Div -->
-
-                        <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
-                            <div class="row" id="my_adoption_offers">                                
-                                
-                                <!-- <div class="col-md-4 d-flex ftco-animate">
-                                    <div class="blog-entry align-self-stretch">
-                                        <img src="{{ menu.petImage }}" alt="pet" style="object-fit: cover;"
-                                            class="block-20">
-                                        <div class="text py-4 d-block">
-                                            <div class="meta">
-                                                <div><b>{{ menu.petName }}</b></div>
-                                                <div>{{ menu.petBirthdate }}</div>
-                                            </div>
-                                            <h3 class="heading mt-2"><a href="/pet_details/{{menu.id}}">{{ menu.breed
-                                                    }}</a></h3>
-                                            <p>{{ menu.description }}</p>
-                                           
+                            <div class="tab-pane" id="v-pills-4" role="tabpanel"
+                                aria-labelledby="v-pills-4-tab">
+                                <div class="row d-flex" id="my_adoption_orders">
+                                    {% for adaption in adaption_by_user %}
+                                    <div class="col-md-4 d-flex ftco-animate">
+                                        <div class="blog-entry align-self-stretch">
+                                            <img src="{{ adaption.petImage }}" alt="pet" style="object-fit: cover;"
+                                                class="block-20">
+                                            <div class="text py-4 d-block">
+                                                <div class="meta">
+                                                    <div><b>{{ adaption.petName }}</b></div>
+                                                    <div>{{ adaption.petBirthdate }}</div>
+                                                </div>
+                                                <h3 class="heading mt-2"><a href="/pet_details/{{adaption.id}}">{{adaption.breed }}</a></h3>
+                                                <p>{{ adaption.description }}</p>
                                         </div>
                                     </div>
-                                </div> -->
-                                
-
+                                </div>
+                                {% endfor %}
                             </div>
-                        </div>
-
-
                     </div>
                 </div>
 

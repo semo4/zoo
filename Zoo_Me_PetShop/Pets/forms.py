@@ -1,5 +1,6 @@
 from django import forms
-from .models import Apply_adoption,Adoption_by_user
+from .models import Apply_adoption, Adoption_by_user
+
 
 class Apply_adoption_form(forms.ModelForm):
     class Meta:
@@ -19,11 +20,11 @@ class Apply_adoption_form(forms.ModelForm):
         }
 
 
-
 class AdoptionOfferForm(forms.ModelForm):
     class Meta:
         model = Adoption_by_user
-        fields = ('owner', 'petName', 'petBirthdate', 'type', 'breed', 'petImage', 'description')
+        fields = ('owner', 'petName', 'petBirthdate',
+                  'type', 'breed', 'petImage', 'description')
         widgets = {
             'owner': forms.TextInput(
                 attrs={

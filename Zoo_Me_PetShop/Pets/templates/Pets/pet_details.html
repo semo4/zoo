@@ -28,21 +28,18 @@
                     <div>Birth Date : {{ pet.petBirthdate }}</div>
                     <div class="text py-4 d-block">
                         <div>
-                            {%if hide_user_name%}
-                            <a href="/apply_adoption/{{pet.id}}" class="btn btn-white btn-outline-white"
-                                onclick="message_back()">Apply for
-                                Adoption</a>
-                            {% for message in messages %}
-                            {%if message.tags == 'success' %}
-                            <!-- For later :: change pop up style -->
-                            <script>
-                                function message_back() { alert('{{ message.tags }}');
-                             }
-                            </script>
-                            {% endif %}
-                            {% endfor %}
+                            {%if hide_user_name %}
+                                {% if exist_pet != '' %}
+                                    <p style="color:red; font-weight: bold;">{{exist_pet}}</p>
+                                    <a  onclick="message_back('choose', '')" class="btn btn-white btn-outline-white">Choose Another Pet</a>
+                                {%else%}
+                                    <a class="btn btn-white btn-outline-white"
+                                        onclick="message_back('add', '/apply_adoption/{{pet.id}}')">Apply for
+                                        Adoption</a>
+                                       
+                                {%endif%}
                             {%else%}
-                            <a href="/login" class="btn btn-white btn-outline-white">Apply for Adoption</a>
+                                <a href="/login" class="btn btn-white btn-outline-white">Apply for Adoption</a>
                             {%endif%}
                         </div>
                     </div>
@@ -52,5 +49,40 @@
         </div>
     </div>
 </section>
+
+<script>
+    function message_back(type, link) {
+        console.log(type);
+        console.log(link);
+
+        if (type == 'choose') {
+            Swal.fire({
+                title: "You already applied for this pet ! Do you Need to Choose another One? ",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                denyButtonText: `No`
+                }).then((result) => {
+                console.log(result);
+                /* Read more about isConfirmed, isDenied below */
+                if (result.value) {
+                    window.location.href = '/pets'
+                } else if (result.dismiss === 'cancel') {
+                    window.location.href = '/'
+                }
+                });
+        } else if (type == 'add') {
+            Swal.fire({
+                title: "You Applied For This Pet, And It Was Added successfully ",
+                confirmButtonText: "Ok"
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.value) {
+                    window.location.href = link
+                }
+            });
+        }
+ }
+</script>
 
 {% endblock %}

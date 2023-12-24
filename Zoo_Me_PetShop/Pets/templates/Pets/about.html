@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'Pets/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="ftco-section" style="padding-bottom: 0rem;">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-3">
+            <div class="col-md-7 heading-section ftco-animate text-center">
+                <h2 class="mb-4">Our Pets</h2>
+<p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                <p class="mt-5">Zoo.Me is an online, searchable database of animals who need homes.<br>
+                    From the comfort of their personal computers, pet lovers can search for a pet that best matches
+                    their
+                    needs. They can then reference a shelter’s web page and discover what services it offers. Zoo.Me
+                    also
+includes discussion forums, a pet-care resource directory and a library of free pet-care articles to
+                    help keep pets in their homes.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-about d-md-flex">
+    <div class="one-half img" 
+        style="background-image: url(https://image.cnbcfm.com/api/v1/image/106686172-1598966433320-gettyimages-1152439648-istockalypse-home-office-00062.jpeg?v=1599013160);">
+    </div>
+    <div class="one-half ftco-animate">
+<div>
+            <h3><b>OUR MISSION</b></h3>
+            <img class="one-half img" src="/static/images/logo_Zoome.png" alt="">
+            <p> <br>
+                To use Internet technology and the resources it can generate to:<br>
+                <br>
+1. Increase public awareness of the availability of high-quality adoptable pets. <br>
+                2. Increase the overall effectiveness of pet adoption programs across North America to the extent that
+                the euthanasia of adoptable pets is eliminated.<br>
+                3. Elevate the status of pets to that of family member</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
