@@ -1,17 +1,20 @@
 {
     "version": 2,
-    "name": "Zoo-Me",
     "builds": [
         {
             "src": "Zoo_Me/wsgi.py",
             "use": "@vercel/python",
             "config": {
-                "maxLambdaSize": "30mb"
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.9"
             }
         },
         {
             "src": "build_files.sh",
-            "use": "@vercel/static"
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles_build"
+            }
         }
     ],
     "routes": [
