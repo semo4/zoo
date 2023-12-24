@@ -13,28 +13,39 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'Pets/about.html')
+    user_name = request.user
+    hide_user_name = False
+    if user_name and not str(user_name) == 'AnonymousUser':
+        hide_user_name = True
+    return render(request, 'Pets/about.html', {'hide_user_name': hide_user_name, 'user_name': user_name})
 
 
 def my_pets(request):
     user_name = request.user
     hide_user_name = False
     user_id = request.user.id
+    print(user_name)
     if user_name and not str(user_name) == 'AnonymousUser':
         hide_user_name = True
         try:
             apply_adoptions = get_list_or_404(
                 Apply_adoption, user_owner_id=user_id)
-            adaption_by_user = get_list_or_404(Adoption_by_user, owner=user_id)
+            print(apply_adoptions)
         except Exception as e:
             print(e)
             apply_adoptions = []
+        try:
+            adaption_by_user = get_list_or_404(Adoption_by_user, owner=user_id)
+            print(adaption_by_user)
+        except Exception as e:
+            print(e)
             adaption_by_user = []
     return render(request, 'Pets/my_pets.html', {'hide_user_name': hide_user_name, 'user_name': user_name, 'apply_adoptions': apply_adoptions, 'adaption_by_user': adaption_by_user})
 
 
 def main(request):
     menu = Pet.objects.all()
+    print(menu)
     user_name = request.user
     hide_user_name = False
     if user_name and not str(user_name) == 'AnonymousUser':
