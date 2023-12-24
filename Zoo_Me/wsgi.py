@@ -1,5 +1,5 @@
 """
-WSGI config for Zoo_Me_PetShop project.
+WSGI config for Zoo_Me project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Zoo_Me_PetShop.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Zoo_Me.settings')
 
 application = get_wsgi_application()
 
